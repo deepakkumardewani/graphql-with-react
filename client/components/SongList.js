@@ -8,19 +8,16 @@ import query from '../queries/fetchSongs'
 class SongList extends Component {
 
   onSongDelete(id) {
-    console.log('id', id);
-
     this.props.mutate({ variables: { id } })
+      .then(() => this.props.data.refetch())
   }
 
   renderSongs () {
-    console.log('len', this.props.data.songs.length);
-
     return this.props.data.songs.map(({ id, title }) => {
       return (
         <li key={id} className='collection-item'>
           { title }
-          <i onClick={() => this.onSongDelete(id)} style={{color: 'red', float: 'right', cursor: 'pointer'}} className="material-icons">delete</i>
+          <i onClick={() => this.onSongDelete(id)} style={{color: 'red'}} className="material-icons">delete</i>
         </li>
       )
     })
