@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "colorette": "^1.0.7",
+    "dumper.js": "^1.2.0",
     "size-plugin": "^1.0.1"
   }
 }
